@@ -28,14 +28,15 @@ const Home = () => {
     <div>...Downloading</div>
   ) : (
     <div>
-      <h1>Welcome to Vinted</h1>
-      {data.allOffers.map((offer, index) => {
-        return (
-          <Link key={offer.id} to="/offer">
-            <Items offer={offer} />
-          </Link>
-        );
-      })}
+      <div className="content">
+        {data.allOffers.map((offer, index) => {
+          return (
+            <Link className="offer-link" key={offer.id} to="/offer">
+              <Items offer={offer} />
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };
