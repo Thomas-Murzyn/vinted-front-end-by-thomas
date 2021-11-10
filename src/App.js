@@ -1,6 +1,7 @@
 import "./App.css";
 import Home from "./pages/Home";
 import Header from "./components/Header";
+import Offer from "./pages/Offer";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/offer" element={<Offer />} />
       </Routes>
     </Router>
   );
