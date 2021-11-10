@@ -7,6 +7,7 @@ const Offer = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { id } = useParams();
+  const dataKey = []; // dataKey nous servira à extraire les key de l'array product_details
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,6 +16,7 @@ const Offer = () => {
           `https://vinted-api-le-reacteur.herokuapp.com/offer/${id}`
         );
         setData(response.data);
+
         setIsLoading(true);
       } catch (error) {
         console.log(error);
@@ -23,12 +25,45 @@ const Offer = () => {
     fetchData();
   }, []);
 
+  if (isLoading) {
+    for (let i = 0; i < data.offer.product_details.length; i++) {
+      dataKey.push(Object.keys(data.offer.product_details[i]));
+    }
+  }
+
   return !isLoading ? (
     <div>...Downloading</div>
   ) : (
-    <div className="offer">
-      <img src={data.offer.product_image.url} alt="" className="offer-image" />
-      <div className="offer-description">offer</div>
+    <div className="container-offer">
+      <div className="offer">
+        <img
+          src={data.offer.product_image.url}
+          alt=""
+          className="offer-image"
+        />
+        <div className="container-offer-description">
+          <h2>{data.offer.product_price}€</h2>
+          {/* Details */}
+          <div className="offer-description">
+            <div>
+              {/* On map à travers dataKey pour extraire chaque key */}
+              {dataKey.map((elem, index) => {
+                return <p key={index}>{elem}</p>;
+              })}
+            </div>
+            <div>
+              {/* On map à travers product_details indice datakey[index] pour extraire chaque valeur */}
+              {data.offer.product_details.map((elem, index) => {
+                return <p key={index}>{elem[dataKey[index]].toUpperCase()}</p>;
+              })}
+            </div>
+          </div>
+          {/* Description product */}
+          <h3>{data.offer.product_name}</h3>
+          <p className="descr">{data.offer.product_description}</p>
+          <button className="buy">Acheter</button>
+        </div>
+      </div>
     </div>
   );
 };

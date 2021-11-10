@@ -44,3 +44,78 @@ header img {
 }
 
 /* Offer */
+
+.container-offer {
+  background-color: #f5f6f7;
+  width: 100%;
+  padding-top: 40px;
+}
+
+.offer {
+  height: 550px;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.offer-image {
+  height: 100%;
+  width: 50%;
+}
+
+.container-offer-description {
+  width: 35%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-offer-description h2 {
+  padding: 25px;
+  font-size: 24px;
+}
+
+.container-offer-description h3 {
+  padding: 25px;
+  font-size: 16px;
+}
+
+.descr {
+  padding: 25px;
+  font-size: 16px;
+  color: #666666;
+}
+
+.offer-description {
+  padding: 0 15px;
+  display: flex;
+}
+
+.offer-description div {
+  padding: 15px;
+}
+
+.offer-description div:first-child p {
+  margin-bottom: 10px;
+  color: #999999;
+}
+
+.offer-description div:last-child p {
+  margin-bottom: 10px;
+  color: #666666;
+}
+
+.buy {
+  align-self: center;
+  cursor: pointer;
+  margin-top: 100px;
+  background-color: #0eadb6;
+  color: white;
+  width: 90%;
+  border-radius: 5px;
+  padding: 10px 0;
+  border: none;
+}
