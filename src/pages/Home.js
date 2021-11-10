@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Items from "../components/Items";
 
 const Home = () => {
   const [data, setData] = useState();
@@ -30,14 +31,11 @@ const Home = () => {
       <h1>Welcome to Vinted</h1>
       {data.allOffers.map((offer, index) => {
         return (
-          <div>
-            <p>{offer.product_name}</p>
-            <p>{offer.product_price}</p>
-            <img className="offer-image" src={offer.product_image.url} alt="" />
-          </div>
+          <Link key={offer.id} to="/offer">
+            <Items offer={offer} />
+          </Link>
         );
       })}
-      {/* <Link to="/offer">Allez sur la page Offer</Link> */}
     </div>
   );
 };
