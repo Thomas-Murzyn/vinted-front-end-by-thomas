@@ -31,7 +31,11 @@ const Home = () => {
       <div className="content">
         {data.allOffers.map((offer, index) => {
           return (
-            <Link className="offer-link" key={offer.id} to="/offer">
+            <Link
+              className="offer-link"
+              key={offer._id}
+              to={`/offer/${offer._id}`}
+            >
               <Items offer={offer} />
             </Link>
           );
