@@ -1,10 +1,13 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
-const LogIn = () => {
+const LogIn = ({ isConnect, setIsConnect }) => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,6 +24,9 @@ const LogIn = () => {
 
       const token = response.data.token;
       Cookies.set("token", token, { expires: 7 });
+      setIsConnect(Cookies.get("token"));
+
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
