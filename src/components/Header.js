@@ -1,11 +1,18 @@
 import logo from "../assets/Vinted-logo.svg.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const Header = ({ isConnect, setIsConnect }) => {
+  const navigate = useNavigate();
   return (
     <header>
-      <img src={logo} alt="" />
+      <img
+        onClick={() => {
+          navigate("/");
+        }}
+        src={logo}
+        alt=""
+      />
       <input type="text" placeholder="Recherche des articles " />
       <nav>
         {isConnect ? (
