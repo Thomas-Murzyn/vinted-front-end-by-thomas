@@ -11,7 +11,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://vinted-api-le-reacteur.herokuapp.com/offers"
+          "https://lereacteur-vinted-api.herokuapp.com/offers"
         );
 
         setData(response.data);
@@ -29,7 +29,7 @@ const Home = () => {
   ) : (
     <div>
       <div className="content">
-        {data.allOffers.map((offer, index) => {
+        {data.offers.map((offer, index) => {
           return (
             <Link
               className="offer-link"
