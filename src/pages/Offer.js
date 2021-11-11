@@ -37,7 +37,7 @@ const Offer = () => {
     <div className="container-offer">
       <div className="offer">
         <img
-          src={data.offer.product_image.url}
+          src={data.offer.product_image.secure_url}
           alt=""
           className="offer-image"
         />
