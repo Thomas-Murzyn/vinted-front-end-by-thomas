@@ -23,7 +23,7 @@ const Offer = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   if (isLoading) {
     for (let i = 0; i < data.offer.product_details.length; i++) {
