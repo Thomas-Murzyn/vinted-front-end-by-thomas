@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Items from "../components/Items";
+import Hero from "../components/Hero";
 
 const Home = () => {
   const [data, setData] = useState();
@@ -27,21 +28,24 @@ const Home = () => {
   return !isLoading ? (
     <div>...Downloading</div>
   ) : (
-    <div>
-      <div className="content">
-        {data.offers.map((offer, index) => {
-          return (
-            <Link
-              className="offer-link"
-              key={offer._id}
-              to={`/offer/${offer._id}`}
-            >
-              <Items offer={offer} />
-            </Link>
-          );
-        })}
+    <>
+      <Hero />
+      <div>
+        <div className="content">
+          {data.offers.map((offer, index) => {
+            return (
+              <Link
+                className="offer-link"
+                key={offer._id}
+                to={`/offer/${offer._id}`}
+              >
+                <Items offer={offer} />
+              </Link>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

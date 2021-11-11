@@ -67,6 +67,49 @@ header img {
   cursor: pointer;
 }
 
+/* Hero */
+
+.hero {
+  width: 100%;
+  position: relative;
+}
+
+.hero img {
+  height: 480px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero div {
+  width: 25%;
+  height: 200px;
+  background-color: #fff;
+  position: absolute;
+  top: 140px;
+  left: 60px;
+  padding: 25px;
+}
+
+.hero h1 {
+  font-size: 34px;
+}
+
+.hero button {
+  margin-top: 15px;
+  font-size: 16px;
+  background-color: #0eadb6;
+  color: white;
+  border: 1px solid #0eadb6;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hero p {
+  font-size: 14px;
+  margin-top: 15px;
+  color: #0eadb6;
+}
+
 /* Content */
 
 .content {
