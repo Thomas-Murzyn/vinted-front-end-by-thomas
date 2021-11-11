@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 const LogIn = ({ isConnect, setIsConnect }) => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
+  const [isWrong, setIsWrong] = useState(false);
 
   const navigate = useNavigate();
 
@@ -28,6 +29,7 @@ const LogIn = ({ isConnect, setIsConnect }) => {
 
       navigate("/");
     } catch (error) {
+      setIsWrong(true);
       console.log(error.message);
     }
   };
@@ -49,6 +51,9 @@ const LogIn = ({ isConnect, setIsConnect }) => {
         />
 
         <input type="submit" value="Se connecter" />
+        {isWrong && (
+          <p className="wrong">Le mot de passe ou le mail ne sont pas bon.</p>
+        )}
       </form>
     </div>
   );
