@@ -1,8 +1,9 @@
 import logo from "../assets/Vinted-logo.svg.png";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import Filter from "./Filter";
 
-const Header = ({ isConnect, setIsConnect }) => {
+const Header = ({ isConnect, setIsConnect, search, setSearch }) => {
   const navigate = useNavigate();
   return (
     <header>
@@ -13,7 +14,8 @@ const Header = ({ isConnect, setIsConnect }) => {
         src={logo}
         alt=""
       />
-      <input type="text" placeholder="Recherche des articles " />
+      <Filter setSearch={setSearch} search={search} />
+
       <nav>
         {isConnect ? (
           <>

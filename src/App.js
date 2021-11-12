@@ -10,11 +10,18 @@ import Cookies from "js-cookie";
 
 function App() {
   const [isConnect, setIsConnect] = useState(Cookies.get("token") || "");
+  const [search, setSearch] = useState(null); // On passe le state search jusqu'au component filter
+
   return (
     <Router>
-      <Header isConnect={isConnect} setIsConnect={setIsConnect} />
+      <Header
+        search={search}
+        setSearch={setSearch}
+        isConnect={isConnect}
+        setIsConnect={setIsConnect}
+      />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home search={search} />} />
         <Route path="/offer/:id" element={<Offer />} />
         <Route
           path="/signup"
