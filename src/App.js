@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+import RangePrice from "./components/RangePrice";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
@@ -24,6 +25,7 @@ function App() {
         setPriceFilter={setPriceFilter}
       />
       <Routes>
+        <Route path="/range" element={<RangePrice />} />
         <Route
           path="/"
           element={<Home priceFilter={priceFilter} search={search} />}
