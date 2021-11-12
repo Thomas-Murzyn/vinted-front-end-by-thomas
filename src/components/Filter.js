@@ -1,4 +1,5 @@
 import { useState } from "react";
+import RangePrice from "./RangePrice";
 
 const Filter = ({ search, setSearch, priceFilter, setPriceFilter }) => {
   const [isCheck, setIsCheck] = useState(false);
@@ -33,6 +34,7 @@ const Filter = ({ search, setSearch, priceFilter, setPriceFilter }) => {
             {isCheck ? <span>⬆</span> : <span>⬇</span>}
           </div>
         </div>
+        <RangePrice />
       </div>
     </div>
   );
