@@ -10,6 +10,7 @@ h3 {
 
 header {
   width: 100%;
+  height: 120px;
   padding: 0 100px;
   border-bottom: 1px solid #5bcbd1;
   display: flex;
@@ -53,7 +54,7 @@ header nav button:nth-child(2) {
 }
 
 header img {
-  width: 80px;
+  width: 100px;
   padding: 15px 0;
   cursor: pointer;
 }
@@ -62,15 +63,44 @@ header img {
 
 .filter {
   width: 40%;
-  height: 30px;
+  height: 61px;
 }
 
-header input {
+.filter input {
   width: 100%;
-  height: 100%;
+  height: 40px;
   background-color: #f5f6f7;
   border: 1px solid #f5f6f7;
   border-radius: 5px;
+}
+
+.price-filter-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-price {
+  width: 9%;
+  height: 20px;
+  background-color: #0eadb6;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.check-price-button {
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-left: 1px;
+  margin-right: 1px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Hero */
@@ -120,7 +150,7 @@ header input {
 
 .content {
   width: 90%;
-  margin: 100px auto 0 auto;
+  margin: 80px auto 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;

@@ -10,7 +10,8 @@ import Cookies from "js-cookie";
 
 function App() {
   const [isConnect, setIsConnect] = useState(Cookies.get("token") || "");
-  const [search, setSearch] = useState(null); // On passe le state search jusqu'au component filter
+  const [search, setSearch] = useState(null);
+  const [priceFilter, setPriceFilter] = useState("price-asc");
 
   return (
     <Router>
@@ -19,9 +20,14 @@ function App() {
         setSearch={setSearch}
         isConnect={isConnect}
         setIsConnect={setIsConnect}
+        priceFilter={priceFilter}
+        setPriceFilter={setPriceFilter}
       />
       <Routes>
-        <Route path="/" element={<Home search={search} />} />
+        <Route
+          path="/"
+          element={<Home priceFilter={priceFilter} search={search} />}
+        />
         <Route path="/offer/:id" element={<Offer />} />
         <Route
           path="/signup"

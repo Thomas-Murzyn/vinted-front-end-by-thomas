@@ -3,7 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import Filter from "./Filter";
 
-const Header = ({ isConnect, setIsConnect, search, setSearch }) => {
+const Header = ({
+  isConnect,
+  setIsConnect,
+  search,
+  setSearch,
+  priceFilter,
+  setPriceFilter,
+}) => {
   const navigate = useNavigate();
   return (
     <header>
@@ -14,7 +21,12 @@ const Header = ({ isConnect, setIsConnect, search, setSearch }) => {
         src={logo}
         alt=""
       />
-      <Filter setSearch={setSearch} search={search} />
+      <Filter
+        setPriceFilter={setPriceFilter}
+        priceFilter={priceFilter}
+        setSearch={setSearch}
+        search={search}
+      />
 
       <nav>
         {isConnect ? (
