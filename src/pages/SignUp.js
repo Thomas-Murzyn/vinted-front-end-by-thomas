@@ -64,7 +64,11 @@ const SignUp = ({ isConnect, setIsConnect }) => {
           <label htmlFor="newletter">S'inscrire à la newsletter</label>
         </div>
 
-        <input type="submit" value="S'inscrire" />
+        <input
+          type="submit"
+          value="S'inscrire"
+          className="submit-signup-button"
+        />
       </form>
     </div>
   );

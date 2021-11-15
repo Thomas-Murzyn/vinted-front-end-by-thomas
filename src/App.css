@@ -283,6 +283,20 @@ header img {
   color: red;
 }
 
+.submit-login-button {
+  background-color: #0eadb6;
+  color: white;
+  border: 1px solid #0eadb6;
+  border-radius: 5px;
+}
+
+.submit-signup-button {
+  background-color: #0eadb6;
+  color: white;
+  border: 1px solid #0eadb6;
+  border-radius: 5px;
+}
+
 /* PUBLISH  */
 
 .publish {

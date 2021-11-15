@@ -39,7 +39,10 @@ const Header = ({
             >
               Se déconnecter
             </button>{" "}
-            <Link to="/offer/publish" className="go-publish">
+            <Link
+              to={isConnect ? `/offer/publish` : `/login`}
+              className="go-publish"
+            >
               Vends tes articles
             </Link>
           </>
@@ -48,6 +51,12 @@ const Header = ({
             {" "}
             <Link to="/signup">S'inscrire</Link>
             <Link to="/login">Se connecter</Link>{" "}
+            <Link
+              to={isConnect ? `/offer/publish` : `/login`}
+              className="go-publish"
+            >
+              Vends tes articles
+            </Link>
           </>
         )}
       </nav>

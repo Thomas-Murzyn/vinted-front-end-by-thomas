@@ -50,7 +50,11 @@ const LogIn = ({ isConnect, setIsConnect }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <input type="submit" value="Se connecter" />
+        <input
+          type="submit"
+          value="Se connecter"
+          className="submit-login-button"
+        />
         {isWrong && (
           <p className="wrong">Le mot de passe ou le mail ne sont pas bon.</p>
         )}
