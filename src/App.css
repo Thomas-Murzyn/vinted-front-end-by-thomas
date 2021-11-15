@@ -296,13 +296,27 @@ header img {
 
 .publish-form {
   width: 90%;
-  background-color: #fff;
+
   display: flex;
   flex-direction: column;
 }
 
 .publish-input-wrapper {
   margin-top: 30px;
+  background-color: #fff;
+}
+
+.picture-publish-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 150px;
+  justify-content: center;
+}
+
+.picture-publish-container label {
+  font-size: 25px;
+  margin-bottom: 10px;
 }
 
 .publish-input-container {
@@ -310,6 +324,7 @@ header img {
   width: 95%;
   height: 75px;
   margin: 0 20px;
+  padding: 10px 0;
 }
 
 .publish-input-container div {
@@ -319,4 +334,30 @@ header img {
 .publish-input-container input,
 textarea {
   width: 100%;
+  border: none;
+  border-bottom: 1px solid #0eadb6;
+}
+
+.checkbox-container {
+  width: 95%;
+  margin: 0 20px;
+  height: 75px;
+  display: flex;
+}
+
+.checkbox-container div {
+  width: 50%;
+  height: 75px;
+}
+
+.submit-publish {
+  margin-top: 5px;
+  background-color: #0eadb6;
+  color: white;
+  border: 1px solid #0eadb6;
+  width: 70px;
+  padding: 10px;
+  border-radius: 5px;
+  align-self: flex-end;
+  cursor: pointer;
 }

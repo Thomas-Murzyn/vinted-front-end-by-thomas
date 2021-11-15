@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router";
 
 import { useState } from "react";
 
@@ -13,6 +14,8 @@ const Publish = () => {
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
   const [picture, setPicure] = useState({});
+
+  const navigate = useNavigate();
 
   const token = Cookies.get("token");
 
@@ -42,7 +45,8 @@ const Publish = () => {
         }
       );
 
-      console.log(response.data);
+      const offerId = response.data._id;
+      navigate(`/offer/${offerId}`);
     } catch (error) {
       console.log(error.message);
     }
@@ -52,8 +56,14 @@ const Publish = () => {
     <div className="publish">
       <h2>Vends tes articles</h2>
       <form onSubmit={handleSubmit} className="publish-form">
-        <div>
-          <input onChange={(e) => setPicure(e.target.files[0])} type="file" />
+        <div className="publish-input-wrapper picture-publish-container">
+          <label htmlFor="file">Choisir une photo</label>
+          <input
+            onChange={(e) => setPicure(e.target.files[0])}
+            type="file"
+            name="file"
+            className="picture-file"
+          />
         </div>
 
         <div className="publish-input-wrapper">
@@ -62,7 +72,11 @@ const Publish = () => {
               <h5>Titre</h5>
             </div>
             <div>
-              <input onChange={(e) => setTitle(e.target.value)} type="text" />
+              <input
+                placeholder="ex: Chemise Sézane verte"
+                onChange={(e) => setTitle(e.target.value)}
+                type="text"
+              />
             </div>
           </div>
           <div className="publish-input-container">
@@ -71,9 +85,10 @@ const Publish = () => {
             </div>
             <div>
               <textarea
+                placeholder="ex: porté quelquefois"
                 onChange={(e) => setDescription(e.target.value)}
                 type="text"
-                rows="4"
+                rows="3"
               />
             </div>
           </div>
@@ -85,7 +100,11 @@ const Publish = () => {
               <h5>Marque</h5>
             </div>
             <div>
-              <input onChange={(e) => setBrand(e.target.value)} type="text" />
+              <input
+                placeholder="ex: Zara"
+                onChange={(e) => setBrand(e.target.value)}
+                type="text"
+              />
             </div>
           </div>
           <div className="publish-input-container">
@@ -93,7 +112,11 @@ const Publish = () => {
               <h5>Taille</h5>
             </div>
             <div>
-              <input onChange={(e) => setSize(e.target.value)} type="text" />
+              <input
+                placeholder="ex: L / 40 / 12"
+                onChange={(e) => setSize(e.target.value)}
+                type="text"
+              />
             </div>
           </div>
 
@@ -102,7 +125,11 @@ const Publish = () => {
               <h5>Couleur</h5>
             </div>
             <div>
-              <input onChange={(e) => setColor(e.target.value)} type="text" />
+              <input
+                placeholder="ex: Fushia"
+                onChange={(e) => setColor(e.target.value)}
+                type="text"
+              />
             </div>
           </div>
 
@@ -112,6 +139,7 @@ const Publish = () => {
             </div>
             <div>
               <input
+                placeholder="ex: Neuf avec étiquette"
                 onChange={(e) => setCondition(e.target.value)}
                 type="text"
               />
@@ -123,7 +151,11 @@ const Publish = () => {
               <h5>Lieu</h5>
             </div>
             <div>
-              <input onChange={(e) => setCity(e.target.value)} type="text" />
+              <input
+                placeholder="ex: Paris"
+                onChange={(e) => setCity(e.target.value)}
+                type="text"
+              />
             </div>
           </div>
         </div>
@@ -134,15 +166,29 @@ const Publish = () => {
               <h5>Prix</h5>
             </div>
             <div>
-              <input onChange={(e) => setPrice(e.target.value)} type="text" />
+              <input
+                placeholder="0,00€"
+                onChange={(e) => setPrice(e.target.value)}
+                type="text"
+              />
             </div>
           </div>
-          <div>
-            <input type="checkbox" />
+
+          <div className="checkbox-container">
+            <div></div>
+            <div>
+              <input
+                type="checkbox"
+                id="echange"
+                name="echange"
+                className="echange"
+              />
+              <span>Je suis intéressé(e) par les échanges</span>
+            </div>
           </div>
         </div>
 
-        <input type="submit" value="Ajouter" />
+        <input className="submit-publish" type="submit" value="Ajouter" />
       </form>
     </div>
   );
