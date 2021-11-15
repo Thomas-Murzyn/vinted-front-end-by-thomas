@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 import { useState } from "react";
 
@@ -11,14 +12,48 @@ const Publish = () => {
   const [brand, setBrand] = useState("");
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
-  const [picture, setPicure] = useState("");
+  const [picture, setPicure] = useState({});
+
+  const token = Cookies.get("token");
+
+  const formData = new FormData();
+  formData.append("title", title);
+  formData.append("description", description);
+  formData.append("price", price);
+  formData.append("condition", condition);
+  formData.append("city", city);
+  formData.append("brand", brand);
+  formData.append("size", size);
+  formData.append("color", color);
+  formData.append("picture", picture);
+
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault();
+
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div className="publish">
       <h2>Vends tes articles</h2>
-      <form className="publish-form">
+      <form onSubmit={handleSubmit} className="publish-form">
         <div>
-          <input type="file" />
+          <input onChange={(e) => setPicure(e.target.files[0])} type="file" />
         </div>
 
         <div className="publish-input-wrapper">
@@ -35,9 +70,10 @@ const Publish = () => {
               <h5>Décris ton article</h5>
             </div>
             <div>
-              <input
+              <textarea
                 onChange={(e) => setDescription(e.target.value)}
                 type="text"
+                rows="4"
               />
             </div>
           </div>
