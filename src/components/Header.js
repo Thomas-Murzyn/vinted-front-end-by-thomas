@@ -39,7 +39,9 @@ const Header = ({
             >
               Se déconnecter
             </button>{" "}
-            <button>Vends tes articles</button>{" "}
+            <Link to="/offer/publish" className="go-publish">
+              Vends tes articles
+            </Link>
           </>
         ) : (
           <>

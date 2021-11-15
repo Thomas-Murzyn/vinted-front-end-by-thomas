@@ -43,7 +43,7 @@ header nav button:first-child {
   cursor: pointer;
 }
 
-header nav button:nth-child(2) {
+.go-publish {
   cursor: pointer;
   background-color: #0eadb6;
   color: white;
@@ -281,4 +281,17 @@ header img {
 
 .wrong {
   color: red;
+}
+
+/* PUBLISH  */
+
+.publish-form {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.publish-input-wrapper {
+  margin-top: 30px;
 }
