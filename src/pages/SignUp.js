@@ -21,7 +21,7 @@ const SignUp = ({ isConnect, setIsConnect }) => {
       };
       event.preventDefault();
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "https://vinted-api-le-reacteur.herokuapp.com/user/signup",
         data
       );
 
@@ -64,7 +64,11 @@ const SignUp = ({ isConnect, setIsConnect }) => {
           <label htmlFor="newletter">S'inscrire à la newsletter</label>
         </div>
 
-        <input type="submit" value="S'inscrire" />
+        <input
+          type="submit"
+          value="S'inscrire"
+          className="submit-signup-button"
+        />
       </form>
     </div>
   );

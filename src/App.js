@@ -28,7 +28,10 @@ function App() {
         setPriceFilter={setPriceFilter}
       />
       <Routes>
+<<<<<<< HEAD
         <Route path="/payment" element={<Payment />} />
+=======
+>>>>>>> thomas-branch
         <Route path="/offer/publish" element={<Publish />} />
         <Route
           path="/"

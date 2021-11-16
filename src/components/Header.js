@@ -39,13 +39,24 @@ const Header = ({
             >
               Se déconnecter
             </button>{" "}
-            <button>Vends tes articles</button>{" "}
+            <Link
+              to={isConnect ? `/offer/publish` : `/login`}
+              className="go-publish"
+            >
+              Vends tes articles
+            </Link>
           </>
         ) : (
           <>
             {" "}
             <Link to="/signup">S'inscrire</Link>
             <Link to="/login">Se connecter</Link>{" "}
+            <Link
+              to={isConnect ? `/offer/publish` : `/login`}
+              className="go-publish"
+            >
+              Vends tes articles
+            </Link>
           </>
         )}
       </nav>

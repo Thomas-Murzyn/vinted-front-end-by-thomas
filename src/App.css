@@ -43,7 +43,7 @@ header nav button:first-child {
   cursor: pointer;
 }
 
-header nav button:nth-child(2) {
+.go-publish {
   cursor: pointer;
   background-color: #0eadb6;
   color: white;
@@ -101,6 +101,7 @@ header img {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 /* Hero */
@@ -281,4 +282,97 @@ header img {
 
 .wrong {
   color: red;
+}
+
+.submit-login-button {
+  background-color: #0eadb6;
+  color: white;
+  border: 1px solid #0eadb6;
+  border-radius: 5px;
+}
+
+.submit-signup-button {
+  background-color: #0eadb6;
+  color: white;
+  border: 1px solid #0eadb6;
+  border-radius: 5px;
+}
+
+/* PUBLISH  */
+
+.publish {
+  width: 100%;
+  background-color: #ebedee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.publish-form {
+  width: 90%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.publish-input-wrapper {
+  margin-top: 30px;
+  background-color: #fff;
+}
+
+.picture-publish-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 150px;
+  justify-content: center;
+}
+
+.picture-publish-container label {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.publish-input-container {
+  display: flex;
+  width: 95%;
+  height: 75px;
+  margin: 0 20px;
+  padding: 10px 0;
+}
+
+.publish-input-container div {
+  width: 50%;
+}
+
+.publish-input-container input,
+textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #0eadb6;
+}
+
+.checkbox-container {
+  width: 95%;
+  margin: 0 20px;
+  height: 75px;
+  display: flex;
+}
+
+.checkbox-container div {
+  width: 50%;
+  height: 75px;
+}
+
+.submit-publish {
+  margin-top: 5px;
+  background-color: #0eadb6;
+  color: white;
+  border: 1px solid #0eadb6;
+  width: 70px;
+  padding: 10px;
+  border-radius: 5px;
+  align-self: flex-end;
+  cursor: pointer;
 }
