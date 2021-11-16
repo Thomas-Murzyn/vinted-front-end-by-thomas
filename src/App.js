@@ -28,16 +28,13 @@ function App() {
         setPriceFilter={setPriceFilter}
       />
       <Routes>
-<<<<<<< HEAD
         <Route path="/payment" element={<Payment />} />
-=======
->>>>>>> thomas-branch
         <Route path="/offer/publish" element={<Publish />} />
         <Route
           path="/"
           element={<Home priceFilter={priceFilter} search={search} />}
         />
-        <Route path="/offer/:id" element={<Offer />} />
+        <Route path="/offer/:id" element={<Offer isConnect={isConnect} />} />
         <Route
           path="/signup"
           element={<SignUp isConnect={isConnect} setIsConnect={setIsConnect} />}

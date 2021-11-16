@@ -1,13 +1,16 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
-const Offer = () => {
+const Offer = ({ isConnect }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   const { id } = useParams();
   const dataKey = []; // dataKey nous servira à extraire les key de l'array product_details
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,7 +64,18 @@ const Offer = () => {
           {/* Description product */}
           <h3>{data.offer.product_name}</h3>
           <p className="descr">{data.offer.product_description}</p>
-          <button className="buy">Acheter</button>
+          <button
+            onClick={() => {
+              // isConnect ? navigate("/payment") : navigate("/login");
+              console.log(isConnect);
+              if (isConnect) {
+                navigate("/payment");
+              }
+            }}
+            className="buy"
+          >
+            Acheter
+          </button>
         </div>
       </div>
     </div>

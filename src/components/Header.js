@@ -34,7 +34,8 @@ const Header = ({
             {" "}
             <button
               onClick={() => {
-                setIsConnect(Cookies.remove("token"));
+                Cookies.remove("token");
+                setIsConnect(null);
               }}
             >
               Se déconnecter
