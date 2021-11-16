@@ -13,7 +13,7 @@ const Offer = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+          `https://vinted-api-le-reacteur.herokuapp.com/offer/${id}`
         );
         setData(response.data);
 
@@ -26,8 +26,8 @@ const Offer = () => {
   }, [id]);
 
   if (isLoading) {
-    for (let i = 0; i < data.product_details.length; i++) {
-      dataKey.push(Object.keys(data.product_details[i]));
+    for (let i = 0; i < data.offer.product_details.length; i++) {
+      dataKey.push(Object.keys(data.offer.product_details[i]));
     }
   }
 
@@ -37,12 +37,12 @@ const Offer = () => {
     <div className="container-offer">
       <div className="offer">
         <img
-          src={data.product_image.secure_url}
+          src={data.offer.product_image.secure_url}
           alt=""
           className="offer-image"
         />
         <div className="container-offer-description">
-          <h2>{data.product_price}€</h2>
+          <h2>{data.offer.product_price}€</h2>
           {/* Details */}
           <div className="offer-description">
             <div>
@@ -53,14 +53,14 @@ const Offer = () => {
             </div>
             <div>
               {/* On map à travers product_details indice datakey[index] pour extraire chaque valeur */}
-              {data.product_details.map((elem, index) => {
+              {data.offer.product_details.map((elem, index) => {
                 return <p key={index}>{elem[dataKey[index]].toUpperCase()}</p>;
               })}
             </div>
           </div>
           {/* Description product */}
-          <h3>{data.product_name}</h3>
-          <p className="descr">{data.product_description}</p>
+          <h3>{data.offer.product_name}</h3>
+          <p className="descr">{data.offer.product_description}</p>
           <button className="buy">Acheter</button>
         </div>
       </div>

@@ -24,9 +24,9 @@ const Filter = ({ search, setSearch, priceFilter, setPriceFilter }) => {
               setIsCheck(!isCheck);
 
               if (isCheck) {
-                setPriceFilter("price-asc");
+                setPriceFilter("asc");
               } else {
-                setPriceFilter("price-desc");
+                setPriceFilter("desc");
               }
             }}
           >

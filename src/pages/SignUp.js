@@ -21,7 +21,7 @@ const SignUp = ({ isConnect, setIsConnect }) => {
       };
       event.preventDefault();
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "https://vinted-api-le-reacteur.herokuapp.com/user/signup",
         data
       );
 

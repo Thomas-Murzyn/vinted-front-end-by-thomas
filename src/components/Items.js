@@ -1,5 +1,6 @@
 const Items = ({ offer }) => {
   const { product_name, product_image, product_price } = offer;
+
   return (
     <div className="item">
       <img className="offers-image" src={product_image.secure_url} alt="" />

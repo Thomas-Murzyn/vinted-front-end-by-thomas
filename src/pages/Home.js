@@ -15,11 +15,11 @@ const Home = ({ search, priceFilter }) => {
         // if search on fait une requête avec ?title=(search) sinon on requête tous.
         if (search) {
           response = await axios.get(
-            `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}&sort=${priceFilter}`
+            `https://vinted-api-le-reacteur.herokuapp.com/offers?title=${search}&sort=${priceFilter}`
           );
         } else {
           response = await axios.get(
-            `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${priceFilter}`
+            `https://vinted-api-le-reacteur.herokuapp.com/offers?sort=${priceFilter}`
           );
         }
 
@@ -40,7 +40,7 @@ const Home = ({ search, priceFilter }) => {
       <Hero />
       <div>
         <div className="content">
-          {data.offers.map((offer, index) => {
+          {data.allOffers.map((offer, index) => {
             return (
               <Link
                 className="offer-link"

@@ -19,11 +19,12 @@ const LogIn = ({ isConnect, setIsConnect }) => {
       };
 
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        "https://vinted-api-le-reacteur.herokuapp.com/user/login",
         data
       );
 
       const token = response.data.token;
+      console.log(token);
       Cookies.set("token", token, { expires: 7 });
       setIsConnect(Cookies.get("token"));
 

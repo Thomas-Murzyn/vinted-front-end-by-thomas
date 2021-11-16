@@ -13,7 +13,8 @@ import Cookies from "js-cookie";
 function App() {
   const [isConnect, setIsConnect] = useState(Cookies.get("token") || "");
   const [search, setSearch] = useState(null);
-  const [priceFilter, setPriceFilter] = useState("price-asc");
+  const [priceFilter, setPriceFilter] = useState("asc");
+  const [price, setPrice] = useState([0, 50]);
 
   return (
     <Router>
