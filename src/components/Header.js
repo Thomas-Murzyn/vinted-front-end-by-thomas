@@ -10,6 +10,8 @@ const Header = ({
   setSearch,
   priceFilter,
   setPriceFilter,
+  setUserId,
+  userId,
 }) => {
   const navigate = useNavigate();
   return (
@@ -35,7 +37,9 @@ const Header = ({
             <button
               onClick={() => {
                 Cookies.remove("token");
+                Cookies.remove("userId");
                 setIsConnect(null);
+                setUserId(null);
               }}
             >
               Se déconnecter

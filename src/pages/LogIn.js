@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-const LogIn = ({ isConnect, setIsConnect }) => {
+const LogIn = ({ isConnect, setIsConnect, userId, setUserId }) => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const [isWrong, setIsWrong] = useState(false);
@@ -24,9 +24,11 @@ const LogIn = ({ isConnect, setIsConnect }) => {
       );
 
       const token = response.data.token;
-      console.log(token);
+      console.log(response.data);
       Cookies.set("token", token, { expires: 7 });
+      Cookies.set("userId", response.data.id, { expires: 7 });
       setIsConnect(Cookies.get("token"));
+      setUserId(response.data.id);
 
       navigate("/");
     } catch (error) {

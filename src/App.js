@@ -16,10 +16,13 @@ function App() {
   const [search, setSearch] = useState(null);
   const [priceFilter, setPriceFilter] = useState("asc");
   const [price, setPrice] = useState([0, 50]);
+  const [userId, setUserId] = useState(null);
 
   return (
     <Router>
       <Header
+        setUserId={setUserId}
+        userId={userId}
         search={search}
         setSearch={setSearch}
         isConnect={isConnect}
@@ -37,11 +40,25 @@ function App() {
         <Route path="/offer/:id" element={<Offer isConnect={isConnect} />} />
         <Route
           path="/signup"
-          element={<SignUp isConnect={isConnect} setIsConnect={setIsConnect} />}
+          element={
+            <SignUp
+              setUserId={setUserId}
+              userId={userId}
+              isConnect={isConnect}
+              setIsConnect={setIsConnect}
+            />
+          }
         />
         <Route
           path="/login"
-          element={<LogIn isConnect={isConnect} setIsConnect={setIsConnect} />}
+          element={
+            <LogIn
+              setUserId={setUserId}
+              userId={userId}
+              isConnect={isConnect}
+              setIsConnect={setIsConnect}
+            />
+          }
         />
       </Routes>
     </Router>

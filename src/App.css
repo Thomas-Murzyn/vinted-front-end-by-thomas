@@ -376,3 +376,18 @@ textarea {
   align-self: flex-end;
   cursor: pointer;
 }
+
+/* Payment */
+
+.form-payment {
+  width: 30%;
+  margin: 150px auto;
+}
+
+.form-payment h6 {
+  margin-bottom: 20px;
+}
+
+.form-payment li {
+  margin-bottom: 10px;
+}

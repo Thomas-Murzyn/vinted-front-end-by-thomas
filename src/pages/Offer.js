@@ -70,6 +70,8 @@ const Offer = ({ isConnect }) => {
               console.log(isConnect);
               if (isConnect) {
                 navigate("/payment");
+              } else {
+                navigate("/login");
               }
             }}
             className="buy"

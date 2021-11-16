@@ -3,7 +3,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
 
-const SignUp = ({ isConnect, setIsConnect }) => {
+const SignUp = ({ isConnect, setIsConnect, setUserId }) => {
   const [username, setUserName] = useState("");
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +28,9 @@ const SignUp = ({ isConnect, setIsConnect }) => {
       const token = response.data.token; // Récupération du token
 
       Cookies.set("token", token, { expires: 7 });
+      Cookies.set("userId", response.data.id, { expires: 7 });
       setIsConnect(Cookies.get("token"));
+      setUserId(response.data.id);
       navigate("/");
     } catch (error) {
       console.log(error);
