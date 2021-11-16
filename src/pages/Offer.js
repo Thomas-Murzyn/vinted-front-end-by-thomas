@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+
 import axios from "axios";
 
 const Offer = ({ isConnect }) => {
@@ -69,7 +69,12 @@ const Offer = ({ isConnect }) => {
               // isConnect ? navigate("/payment") : navigate("/login");
               console.log(isConnect);
               if (isConnect) {
-                navigate("/payment");
+                navigate("/payment", {
+                  state: {
+                    title: data.offer.product_name,
+                    price: data.offer.product_price,
+                  },
+                });
               } else {
                 navigate("/login");
               }

@@ -3,7 +3,7 @@ import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ title, price }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [completed, setCompleted] = useState(false);
@@ -18,6 +18,20 @@ const CheckoutForm = () => {
       });
       console.log(stripeResponse);
       const stripeToken = stripeResponse.token.id;
+
+      const response = await axios.post(
+        "https://vinted-api-le-reacteur.herokuapp.com/payment",
+        {
+          stripeToken,
+          title,
+          price,
+        }
+      );
+
+      console.log(response.data);
+      if (response.data.status === "succeeded") {
+        setCompleted(true);
+      }
     } catch (error) {
       console.log(error.message);
     }
@@ -30,7 +44,7 @@ const CheckoutForm = () => {
         <ul>
           <li>
             <span>Commande</span>
-            <span>price</span>
+            <span> {price}€</span>
           </li>
           <li>
             <span>Frais de protection acheteur</span>
@@ -43,6 +57,9 @@ const CheckoutForm = () => {
         </ul>
         <CardElement />
         <button type="submit">Valider</button>
+        {completed && (
+          <p style={{ color: "green", marginTop: "10px" }}>Paiement validé</p>
+        )}
       </form>
     </>
   );
