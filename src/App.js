@@ -4,14 +4,18 @@ import Header from "./components/Header";
 import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
 
 function App() {
-  const [isConnect, setIsConnect] = useState(Cookies.get("token") || "");
+  const [isConnect, setIsConnect] = useState(Cookies.get("token") || null);
   const [search, setSearch] = useState(null);
-  const [priceFilter, setPriceFilter] = useState("price-asc");
+  const [priceFilter, setPriceFilter] = useState("asc");
+  const [price, setPrice] = useState([0, 50]);
 
   return (
     <Router>
@@ -24,6 +28,8 @@ function App() {
         setPriceFilter={setPriceFilter}
       />
       <Routes>
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/offer/publish" element={<Publish />} />
         <Route
           path="/"
           element={<Home priceFilter={priceFilter} search={search} />}
