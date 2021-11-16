@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Items from "../components/Items";
 import Hero from "../components/Hero";
 
-const Home = ({ search, priceFilter }) => {
+const Home = ({ search, priceFilter, priceMin, priceMax }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -15,11 +15,11 @@ const Home = ({ search, priceFilter }) => {
         // if search on fait une requête avec ?title=(search) sinon on requête tous.
         if (search) {
           response = await axios.get(
-            `https://vinted-api-le-reacteur.herokuapp.com/offers?title=${search}&sort=${priceFilter}`
+            `https://vinted-api-le-reacteur.herokuapp.com/offers?title=${search}&sort=${priceFilter}&priceMin=${priceMin}&priceMax=${priceMax}`
           );
         } else {
           response = await axios.get(
-            `https://vinted-api-le-reacteur.herokuapp.com/offers?sort=${priceFilter}`
+            `https://vinted-api-le-reacteur.herokuapp.com/offers?sort=${priceFilter}&priceMin=${priceMin}&priceMax=${priceMax}`
           );
         }
 
@@ -31,7 +31,7 @@ const Home = ({ search, priceFilter }) => {
     };
 
     fetchData();
-  }, [search, priceFilter]);
+  }, [search, priceFilter, priceMax, priceMin]);
 
   return !isLoading ? (
     <div>...Downloading</div>

@@ -1,6 +1,15 @@
 import { useState } from "react";
 
-const Filter = ({ search, setSearch, priceFilter, setPriceFilter }) => {
+const Filter = ({
+  priceMin,
+  setPriceMin,
+  search,
+  setSearch,
+  priceFilter,
+  setPriceFilter,
+  setPriceMax,
+  priceMax,
+}) => {
   const [isCheck, setIsCheck] = useState(false);
   return (
     <div className="filter">
@@ -32,6 +41,24 @@ const Filter = ({ search, setSearch, priceFilter, setPriceFilter }) => {
           >
             {isCheck ? <span>⬆</span> : <span>⬇</span>}
           </div>
+        </div>
+        <div className="sort-by-price">
+          <label htmlFor="sort-min">Prix min</label>
+          <input
+            name="sort-min"
+            type="number"
+            onChange={(e) => {
+              setPriceMin(e.target.value);
+            }}
+          />
+          <label htmlFor="sort-max">Prix max</label>
+          <input
+            name="sort-max"
+            type="number"
+            onChange={(e) => {
+              setPriceMax(e.target.value);
+            }}
+          />
         </div>
       </div>
     </div>

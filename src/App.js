@@ -15,7 +15,9 @@ function App() {
   const [isConnect, setIsConnect] = useState(Cookies.get("token") || null);
   const [search, setSearch] = useState(null);
   const [priceFilter, setPriceFilter] = useState("asc");
-  const [price, setPrice] = useState([0, 50]);
+
+  const [priceMax, setPriceMax] = useState("");
+  const [priceMin, setPriceMin] = useState("");
   const [userId, setUserId] = useState(null);
 
   return (
@@ -29,13 +31,24 @@ function App() {
         setIsConnect={setIsConnect}
         priceFilter={priceFilter}
         setPriceFilter={setPriceFilter}
+        priceMin={priceMin}
+        setPriceMin={setPriceMin}
+        priceMax={priceMax}
+        setPriceMax={setPriceMax}
       />
       <Routes>
         <Route path="/payment" element={<Payment />} />
         <Route path="/offer/publish" element={<Publish />} />
         <Route
           path="/"
-          element={<Home priceFilter={priceFilter} search={search} />}
+          element={
+            <Home
+              priceMax={priceMax}
+              priceMin={priceMin}
+              priceFilter={priceFilter}
+              search={search}
+            />
+          }
         />
         <Route path="/offer/:id" element={<Offer isConnect={isConnect} />} />
         <Route

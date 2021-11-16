@@ -12,6 +12,10 @@ const Header = ({
   setPriceFilter,
   setUserId,
   userId,
+  priceMin,
+  setPriceMin,
+  priceMax,
+  setPriceMax,
 }) => {
   const navigate = useNavigate();
   return (
@@ -28,6 +32,10 @@ const Header = ({
         priceFilter={priceFilter}
         setSearch={setSearch}
         search={search}
+        priceMin={priceMin}
+        setPriceMin={setPriceMin}
+        priceMax={priceMax}
+        setPriceMax={setPriceMax}
       />
 
       <nav>
