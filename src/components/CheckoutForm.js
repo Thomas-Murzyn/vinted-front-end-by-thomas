@@ -38,7 +38,7 @@ const CheckoutForm = ({ title, price }) => {
   };
 
   return (
-    <>
+    <div className="payment-form-container">
       <form onSubmit={handleSubmit} className="form-payment">
         <h6>Résumé de la commande</h6>
         <ul>
@@ -52,16 +52,32 @@ const CheckoutForm = ({ title, price }) => {
           </li>
           <li>
             <span>Frais de port</span>
-            <span>0.80€</span>
+            <span>1€</span>
           </li>
         </ul>
-        <CardElement />
-        <button type="submit">Valider</button>
+        <div className="form-payment-total">
+          <h5>Total</h5>
+          <span>{price + 1.4} €</span>
+        </div>
+        <CardElement className="cardElement" />
+        <div className="container-submit-payment-button">
+          <button type="submit">Valider</button>
+        </div>
+
         {completed && (
-          <p style={{ color: "green", marginTop: "10px" }}>Paiement validé</p>
+          <p
+            style={{
+              color: "green",
+              marginTop: "20px",
+              textAlign: "center",
+              fontSize: "20px",
+            }}
+          >
+            Paiement validé
+          </p>
         )}
       </form>
-    </>
+    </div>
   );
 };
 
